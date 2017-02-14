@@ -21,6 +21,7 @@ use warnings;
 use XML::LibXML;
 use Getopt::Long qw(:config no_ignore_case);
 use JSON;
+use XML::Simple;
 
 use AzureMetadata::AzureDisk;
 use AzureMetadata::AzureNetwork;
@@ -151,7 +152,7 @@ sub writeMetaData {
     my $json_text = $json_ref ->encode( $json_data );
     chomp $json_text;
     if ($output_style eq 'xml') {
-        return "<document>".$json_text."</document>";
+        return XMLout($json_ref->decode($json_text), RootName => 'document');
     } elsif ($output_style eq 'json') {
         return $json_text;
     } else {

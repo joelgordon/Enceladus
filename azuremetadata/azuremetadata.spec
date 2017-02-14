@@ -30,6 +30,7 @@ Source0:        %{name}-%{version}.tar.bz2
 Requires:       perl
 Requires:       perl-JSON
 Requires:       perl-XML-LibXML
+Requires:       perl-XML-Simple
 BuildRequires:  perl
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
